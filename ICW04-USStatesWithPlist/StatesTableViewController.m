@@ -20,10 +20,11 @@
 
 @synthesize content = _content;
 
--(NSArray *)content
+-(NSDictionary *)content
 {
     if (!_content) {
-        _content = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StatesData" ofType:@"plist"]];
+        _content = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StatesData" ofType:@"plist"]];
+        
     }
     return _content;
 }
@@ -32,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    
+    [self content];
+    NSLog(@"%@",_content);
 }
 
 - (void)didReceiveMemoryWarning {

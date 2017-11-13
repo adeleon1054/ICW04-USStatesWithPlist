@@ -10,6 +10,6 @@
 
 @interface StatesTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSArray *content;
+@property (strong, nonatomic) NSDictionary *content;
 
 @end
