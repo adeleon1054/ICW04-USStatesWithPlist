@@ -59,10 +59,13 @@
     StatesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.lblState.text = [[self.content objectAtIndex:indexPath.row] valueForKey:@"Name"];
-    cell.lblCapital.text = [[self.content objectAtIndex:indexPath.row] valueForKey:@"CapitalCity"];
+    NSArray *keys = [_content allKeys];
+    id aKey = [keys objectAtIndex:indexPath.row];
+    id aObject = [_content objectForKey:aKey];
+    cell.lblState.text = [[self.content objectForKey:aObject] valueForKey:@"Name"];
+    cell.lblCapital.text = [[self.content objectForKey:aObject] valueForKey:@"CapitalCity"];
     
-    NSLog(@"%@", [[self.content objectAtIndex:indexPath.row] valueForKey:@"Name"]);
+    NSLog(@"%@", [[self.content objectForKey:aObject] valueForKey:@"Name"]);
     
     return cell;
 }
